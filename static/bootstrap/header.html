@@ -1,0 +1,23 @@
+{# Reusable Flask/Jinja header partial. Include from base.html. #}
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="{{ url_for('index') }}" aria-label="Day-Check home">
+      <span class="brand-mark"><i class="bi bi-check2"></i></span>
+      <span class="brand-copy"><strong>Day-Check</strong><small>Make every day count</small></span>
+    </a>
+    <div class="header-actions">
+      <a class="btn btn-login" href="{{ url_for('login') }}">Log in</a>
+      <a class="btn btn-primary-custom" href="{{ url_for('signup') }}">Sign up <i class="bi bi-arrow-up-right"></i></a>
+    </div>
+  </div>
+</header>
+<nav class="main-nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><i class="bi bi-list"></i><span>Menu</span></button>
+    <div class="nav-links">
+      <a class="nav-link active" href="#home">Home</a><a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#features">Features</a><a class="nav-link" href="#how-it-works">How it works</a>
+      <a class="nav-link" href="#benefits">Benefits</a><a class="nav-link" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+        content="Your Day-Check routine and progress dashboard.">
+
+    <title>Progress Dashboard | Day-Check</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+
+<body class="dashboard-body">
+
+    <header class="dashboard-header">
+
+        <div class="container-fluid dashboard-header-inner">
+
+            <a class="brand dashboard-brand"
+                href="{{ url_for('dashboard') }}"
+                aria-label="Day-Check Dashboard">
+
+                <span class="brand-mark">
+                    <i class="bi bi-check2-all"></i>
+                </span>
+
+                <span class="brand-copy">
+                    <strong>Day-Check</strong>
+                    <small>ROUTINE TRACKER</small>
+                </span>
+
+            </a>
+
+            <div class="header-quote d-none d-lg-flex"
+                aria-live="polite">
+
+                <i class="bi bi-quote"></i>
+
+                <span id="motivationalQuote">
+                    Small steps, repeated daily, create meaningful change.
+                </span>
+
+            </div>
+
+            <div class="header-user-actions">
+
+                <button
+                    class="icon-button theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch to dark mode"
+                    title="Toggle theme">
+
+                    <i class="bi bi-moon-stars"
+                        id="themeIcon"></i>
+
+                </button>
+
+                <div class="user-chip">
+
+                    <span class="user-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+
+                    <span class="user-name">
+                        {{ username|default('User', true)|e }}
+                    </span>
+
+                </div>
+
+                <button
+                    class="icon-button sidebar-toggle d-lg-none"
+                    id="sidebarToggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-controls="dashboardSidebar"
+                    aria-expanded="false">
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-shell">
+
+        <aside class="dashboard-sidebar"
+            id="dashboardSidebar">
+
+            <div class="sidebar-label">
+                WORKSPACE
+            </div>
+
+
+            <nav class="sidebar-nav"
+                aria-label="Main navigation">
+
+                <a class="sidebar-link active"
+                    href="{{ url_for('dashboard') }}"
+                    aria-current="page">
+
+                    <i class="bi bi-grid-1x2"></i>
+                    <span>Progress Dashboard</span>
+
+                </a>
+
+                <a class="sidebar-link" href="#">
+
+                    <i class="bi bi-calendar2-check"></i>
+                    <span>Daily Tracker</span>
+
+                </a>
+
+                <a class="sidebar-link" href="#">
+
+                    <i class="bi bi-list-check"></i>
+                    <span>Routine Management</span>
+
+                </a>
+
+                <a class="sidebar-link" href="#">
+
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>Records &amp; Reports</span>
+
+                </a>
+
+                <a class="sidebar-link" href="#">
+
+                    <i class="bi bi-sliders"></i>
+                    <span>Setting</span>
+
+                </a>
+
+                <a class="sidebar-link" href="#">
+
+                    <i class="bi bi-person"></i>
+                    <span>Profile</span>
+
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-footer-icon">
+                    <i class="bi bi-stars"></i>
+                </div>
+
+                <p>
+                    Every day, one step closer to growth
+                    and self-improvement.
+                </p>
+
+            </div>
+
+        </aside>
+
+        <button
+            class="sidebar-scrim"
+            id="sidebarScrim"
+            type="button"
+            aria-label="Close navigation">
+        </button>
+
+        <main class="dashboard-main">
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <span class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        YOUR PERSONAL OVERVIEW
+                    </span>
+
+                    <h1 id="welcomeHeading">
+                        Welcome back{% if username %},
+                        {{ username|e }}{% endif %}!
+                    </h1>
+
+                    <p>
+                        Stay consistent, focus on what matters,
+                        and make today count.
+                    </p>
+
+                </div>
+
+                <div class="date-pill">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span id="currentDate"></span>
+
+                </div>
+
+            </section>
+
+            <section class="overview-grid"
+                aria-label="Routine overview">
+
+                <article class="overview-card">
+
+                    <div class="overview-icon icon-blue">
+                        <i class="bi bi-collection"></i>
+                    </div>
+
+                    <div class="overview-copy">
+
+                        <span>Total Routines</span>
+
+                        <strong data-stat="total_routines">—</strong>
+
+                        <small>Routines in your plan</small>
+
+                    </div>
+
+                </article>
+
+                <article class="overview-card">
+
+                    <div class="overview-icon icon-green">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+
+                    <div class="overview-copy">
+
+                        <span>Completed Today</span>
+
+                        <strong data-stat="completed_today">—</strong>
+
+                        <small>Completed so far today</small>
+
+                    </div>
+
+                </article>
+
+                <article class="overview-card">
+
+                    <div class="overview-icon icon-orange">
+                        <i class="bi bi-hourglass-split"></i>
+                    </div>
+
+                    <div class="overview-copy">
+
+                        <span>Pending Tasks</span>
+
+                        <strong data-stat="pending_tasks">—</strong>
+
+                        <small>Still on your schedule</small>
+
+                    </div>
+
+                </article>
+
+                <article class="overview-card">
+
+                    <div class="overview-icon icon-purple">
+                        <i class="bi bi-fire"></i>
+                    </div>
+
+                    <div class="overview-copy">
+
+                        <span>Current Streak</span>
+
+                        <strong data-stat="current_streak">—</strong>
+
+                        <small>Consecutive active days</small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="dashboard-grid dashboard-grid-top">
+
+                <article class="panel-card daily-progress-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                YOUR DAY AT A GLANCE
+                            </span>
+
+                            <h2>Daily Progress</h2>
+
+                        </div>
+
+                        <span class="soft-badge">
+                            <i class="bi bi-activity"></i>
+                            Today
+                        </span>
+
+                    </div>
+
+
+                    <div class="daily-progress-content">
+
+                        <div
+                            class="progress-ring"
+                            id="dailyProgressRing"
+                            role="img"
+                            aria-label="Today's completion: no data yet">
+
+                            <div class="progress-ring-inner">
+
+                                <strong id="dailyProgressPercent">
+                                    —
+                                </strong>
+
+                                <span>complete</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="progress-details">
+
+                            <strong id="dailyProgressCount">
+                                No progress data yet
+                            </strong>
+
+                            <p id="dailyProgressMessage">
+                                Your progress will appear here once
+                                you start tracking routines.
+                            </p>
+
+
+                            <div
+                                class="progress-track"
+                                role="progressbar"
+                                aria-label="Daily completion"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="0">
+
+                                <span id="dailyProgressBar"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="panel-card weekly-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                YOUR CONSISTENCY
+                            </span>
+
+                            <h2>Weekly Progress</h2>
+
+                        </div>
+
+                        <span class="panel-subtitle">
+                            Last 7 days
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="chart-container"
+                        id="weeklyChartContainer">
+
+                        <canvas
+                            id="weeklyProgressChart"
+                            aria-label="Weekly routine completion chart"
+                            role="img">
+                        </canvas>
+
+
+                        <div
+                            class="chart-empty-state"
+                            id="weeklyChartEmpty">
+
+                            Your weekly progress will appear here
+                            once you start tracking routines.
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <section class="dashboard-grid dashboard-grid-bottom">
+
+
+                <article class="panel-card routine-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                UP NEXT
+                            </span>
+
+                            <h2>Today's Routines</h2>
+
+                        </div>
+
+
+                        <a class="text-link" href="#">
+
+                            View All
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                    <div
+                        id="routineList"
+                        class="routine-list"
+                        aria-live="polite">
+
+                        <div class="empty-state">
+
+                            <span class="empty-state-icon">
+                                <i class="bi bi-calendar2-check"></i>
+                            </span>
+
+                            <strong>
+                                No routines scheduled for today.
+                            </strong>
+
+                            <p>
+                                Your scheduled routines will show up here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="panel-card activity-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                THE LATEST
+                            </span>
+
+                            <h2>Recent Activity</h2>
+
+                        </div>
+
+
+                        <a class="text-link" href="#">
+
+                            History
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                    <div
+                        id="activityList"
+                        class="activity-list"
+                        aria-live="polite">
+
+                        <div class="empty-state compact-empty">
+
+                            <span class="empty-state-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </span>
+
+                            <strong>
+                                No recent activity available.
+                            </strong>
+
+                            <p>
+                                Updates to your routines will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="quick-actions-section">
+
+
+                <div class="quick-actions-heading">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            KEEP THE MOMENTUM
+                        </span>
+
+                        <h2>Quick Actions</h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="quick-actions">
+
+                    <a class="quick-action-card" href="#">
+
+                        <span class="quick-action-icon icon-blue">
+
+                            <i class="bi bi-plus-lg"></i>
+
+                        </span>
+
+
+                        <span>
+
+                            <strong>Add New Routine</strong>
+
+                            <small>
+                                Build a routine that supports your goals
+                            </small>
+
+                        </span>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </a>
+
+
+                    <a class="quick-action-card" href="#">
+
+                        <span class="quick-action-icon icon-green">
+
+                            <i class="bi bi-check2-square"></i>
+
+                        </span>
+
+
+                        <span>
+
+                            <strong>Open Daily Tracker</strong>
+
+                            <small>
+                                Update today's routine progress
+                            </small>
+
+                        </span>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </a>
+
+
+                    <a class="quick-action-card" href="#">
+
+                        <span class="quick-action-icon icon-purple">
+
+                            <i class="bi bi-graph-up-arrow"></i>
+
+                        </span>
+
+
+                        <span>
+
+                            <strong>View Reports</strong>
+
+                            <small>
+                                Explore your activity and trends
+                            </small>
+
+                        </span>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+            <footer class="dashboard-footer">
+
+                <span>
+                    © <span id="currentYear"></span> Day-Check
+                </span>
+
+                <span>
+                    Every day, one step closer to growth
+                    and self-improvement.
+                </span>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+    <script id="dashboard-data" type="application/json">
+        {{ dashboard_data|default({}, true)|tojson }}
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js">
+    </script>
+
+    <script
+        src="{{ url_for('static', filename='js/dashboard.js') }}"
+        defer>
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+</body>
+</html>

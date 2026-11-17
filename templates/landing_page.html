@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Day-Check helps you build better habits, organize routines, and understand your progress.">
+  <title>Day-Check | Make Every Day Count</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <!-- Reusable public-site header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Day-Check home">
+        <span class="brand-mark"><i class="bi bi-check2"></i></span>
+        <span class="brand-copy"><strong>Day-Check</strong><small>Make every day count</small></span>
+      </a>
+      <div class="header-actions">
+        <form action="/login">
+          <button type="submit" class="btn btn-login"> Log in</button>
+        </form>
+        <!-- <a class="btn btn-login" href="login.html">Log in</a> -->
+        <form action="/signup">
+          <button type="submit" class="btn btn-primary-custom"> Sign up <i class="bi bi-arrow-up-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Horizontal navigation -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i><span>Menu</span>
+      </button>
+      <div class="nav-links">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#how-it-works">How it works</a>
+        <a class="nav-link" href="#benefits">Benefits</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <span class="nav-note"><i class="bi bi-stars"></i> Small steps. Real progress.</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section section-pad" id="home">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 hero-copy">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR ROUTINE, YOUR MOMENTUM</span>
+            <h1>Make every day <span>count.</span></h1>
+            <p class="hero-lead">Build better habits, organize your daily routines, and track your progress with Day-Check. Take small steps every day towards a more productive and balanced life.</p>
+            <div class="hero-actions">
+              <form action="/signup">
+                <button type="submit" class="btn btn-primary-custom btn-lg">Get started <i class="bi bi-arrow-right"></i></button>
+              </form>
+              <!-- <a class="btn btn-primary-custom btn-lg" href="signup.html">Get started <i class="bi bi-arrow-right"></i></a> -->
+              <a class="btn btn-outline-custom btn-lg" href="#features"><i class="bi bi-play-circle"></i> Explore features</a>
+            </div>
+            <div class="hero-proof">
+              <div class="proof-avatars"><span>✓</span><span>↗</span><span>✦</span></div>
+              <p><strong>A little progress adds up.</strong><br><small>Make consistency part of your everyday.</small></p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual">
+              <div class="visual-glow"></div>
+              <div class="dashboard-window">
+                <div class="window-top">
+                  <div class="window-dots"><i></i><i></i><i></i></div>
+                  <span>My day <span class="live-dot"></span></span>
+                  <i class="bi bi-three-dots"></i>
+                </div>
+                <div class="preview-content">
+                  <div class="preview-heading"><div><small>MONDAY, 09 NOVEMBER</small><h3>Good morning! <span>☀️</span></h3><p>Let's make today meaningful.</p></div><div class="mini-avatar">V</div></div>
+                  <div class="preview-stats">
+                    <div class="completion-card">
+                      <div class="stat-label">Daily completion <i class="bi bi-three-dots"></i></div>
+                      <div class="completion-row"><div class="progress-ring"><span>75<small>%</small></span></div><div><strong>You're doing great!</strong><small>6 of 8 tasks completed</small><span class="trend"><i class="bi bi-graph-up-arrow"></i> Keep it going</span></div></div>
+                    </div>
+                    <div class="streak-card"><span class="streak-icon"><i class="bi bi-fire"></i></span><strong>5 days</strong><small>Current streak</small></div>
+                  </div>
+                  <div class="preview-lower">
+                    <div class="task-card">
+                      <div class="card-heading"><strong>Today's routine</strong><span>6/8 done</span></div>
+                      <div class="task-item done"><span class="task-check"><i class="bi bi-check"></i></span><span>Morning walk</span><small>7:00 AM</small></div>
+                      <div class="task-item done"><span class="task-check"><i class="bi bi-check"></i></span><span>Read 10 pages</span><small>8:00 AM</small></div>
+                      <div class="task-item done"><span class="task-check"><i class="bi bi-check"></i></span><span>Plan the day</span><small>9:00 AM</small></div>
+                      <div class="task-item"><span class="task-check"></span><span>Practice coding</span><small>4:00 PM</small></div>
+                    </div>
+                    <div class="week-card">
+                      <div class="card-heading"><strong>This week</strong><span><i class="bi bi-three-dots"></i></span></div>
+                      <strong class="week-percent">82%</strong><small class="week-caption">Productivity</small>
+                      <div class="week-bars" aria-label="Illustrative weekly productivity chart">
+                        <span style="height:48%"><i>M</i></span><span style="height:72%"><i>T</i></span><span style="height:58%"><i>W</i></span><span style="height:90%"><i>T</i></span><span style="height:76%"><i>F</i></span><span style="height:62%"><i>S</i></span><span style="height:82%"><i>S</i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="preview-foot"><i class="bi bi-stars"></i> Every small win moves you forward.</div>
+                </div>
+              </div>
+              <div class="float-note note-top"><span><i class="bi bi-check2-circle"></i></span><div><strong>Routine complete!</strong><small>You're building consistency</small></div></div>
+              <div class="float-note note-bottom"><span class="note-purple"><i class="bi bi-bar-chart-line"></i></span><div><strong>Progress is growing</strong><small>+12% this week</small></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-inner"><span>PLAN WITH PURPOSE</span><i class="bi bi-circle-fill"></i><span>BUILD CONSISTENCY</span><i class="bi bi-circle-fill"></i><span>CELEBRATE PROGRESS</span></div>
+    </section>
+
+    <!-- About -->
+    <section class="section-pad about-section" id="about">
+      <div class="container">
+        <div class="section-heading text-center mx-auto">
+          <span class="eyebrow">A BETTER WAY TO SHOW UP</span>
+          <h2>What is <span>Day-Check?</span></h2>
+          <p>Day-Check helps you turn your daily plans into consistent actions. It provides a simple way to schedule activities, manage routines, track habits, and understand your personal progress.</p>
+        </div>
+        <div class="about-grid">
+          <article class="about-item"><span class="about-icon icon-blue"><i class="bi bi-calendar2-check"></i></span><h3>Plan with clarity</h3><p>Give your day structure with activities that matter.</p></article>
+          <article class="about-item"><span class="about-icon icon-purple"><i class="bi bi-arrow-repeat"></i></span><h3>Stay consistent</h3><p>Turn helpful actions into routines you can repeat.</p></article>
+          <article class="about-item"><span class="about-icon icon-green"><i class="bi bi-lightning-charge"></i></span><h3>Make progress</h3><p>See what you complete and where your time goes.</p></article>
+          <article class="about-item"><span class="about-icon icon-orange"><i class="bi bi-graph-up-arrow"></i></span><h3>Keep growing</h3><p>Learn from your progress and keep moving forward.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section-pad features-section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">EVERYTHING IN ONE PLACE</span>
+          <h2>Simple tools for <span>meaningful progress.</span></h2>
+          <p>Stay on top of your day with features designed to make routine building feel clear and achievable.</p>
+        </div>
+        <div class="row g-4 feature-grid">
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-blue"><i class="bi bi-check2-square"></i></span><h3>Daily Tracker</h3><p>Track daily activities and mark completed tasks as you move through your day.</p><a href="#how-it-works">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-purple"><i class="bi bi-calendar-week"></i></span><h3>Routine Management</h3><p>Create, update, schedule, and organize routines around your priorities.</p><a href="#how-it-works">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-green"><i class="bi bi-speedometer2"></i></span><h3>Progress Dashboard</h3><p>Understand your performance through clear progress charts and statistics.</p><a href="#preview">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-orange"><i class="bi bi-repeat"></i></span><h3>Habit Tracking</h3><p>Build positive habits, keep your streaks going, and celebrate small wins.</p><a href="#benefits">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-pink"><i class="bi bi-file-earmark-bar-graph"></i></span><h3>Reports &amp; Analytics</h3><p>Review daily, weekly, and monthly productivity reports to spot patterns.</p><a href="#preview">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+          <div class="col-md-6 col-lg-4"><article class="feature-card"><span class="feature-icon icon-teal"><i class="bi bi-sliders"></i></span><h3>Personalization</h3><p>Adjust your experience and preferences to make Day-Check feel like yours.</p><a href="#contact">Explore <i class="bi bi-arrow-up-right"></i></a></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section-pad process-section" id="how-it-works">
+      <div class="container">
+        <div class="section-heading text-center mx-auto">
+          <span class="eyebrow">A FEW STEPS TO GET STARTED</span>
+          <h2>How it <span>works.</span></h2>
+          <p>Start simple. Build a routine that fits your life, then improve it one day at a time.</p>
+        </div>
+        <div class="process-flow">
+          <article class="process-step"><div class="step-number">01</div><span class="process-icon"><i class="bi bi-person-plus"></i></span><h3>Create your account</h3><p>Register and access your personal space.</p></article>
+          <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+          <article class="process-step"><div class="step-number">02</div><span class="process-icon purple"><i class="bi bi-calendar-plus"></i></span><h3>Add your routines</h3><p>Create daily activities and schedule tasks.</p></article>
+          <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+          <article class="process-step"><div class="step-number">03</div><span class="process-icon green"><i class="bi bi-check2-circle"></i></span><h3>Track your activities</h3><p>Mark tasks complete and build consistency.</p></article>
+          <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+          <article class="process-step"><div class="step-number">04</div><span class="process-icon orange"><i class="bi bi-bar-chart"></i></span><h3>Monitor your progress</h3><p>Review statistics and productivity reports.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard preview -->
+    <section class="section-pad preview-section" id="preview">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <span class="eyebrow">YOUR PROGRESS, AT A GLANCE</span>
+            <h2>See the small wins <span>add up.</span></h2>
+            <p class="section-description">A clear overview helps you understand your routines, recognize your progress, and decide what to focus on next.</p>
+            <ul class="preview-points">
+              <li><i class="bi bi-check-circle-fill"></i> See daily completion at a glance</li>
+              <li><i class="bi bi-check-circle-fill"></i> Follow weekly productivity trends</li>
+              <li><i class="bi bi-check-circle-fill"></i> Keep an eye on habits and routines</li>
+            </ul>
+            <a href="signup.html" class="text-link">Start tracking your progress <i class="bi bi-arrow-right"></i></a>
+            <p class="sample-note">* All figures shown are illustrative sample data.</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="analytics-board">
+              <div class="analytics-top"><div><small>OVERVIEW</small><h3>Your progress</h3></div><span class="sample-badge">Sample dashboard</span></div>
+              <div class="metric-grid">
+                <div class="metric-card"><span>Daily completion</span><strong>75%</strong><small><i class="bi bi-arrow-up-right"></i> 6 of 8 tasks</small></div>
+                <div class="metric-card"><span>Completed tasks</span><strong>6/8</strong><small>Today's activities</small></div>
+                <div class="metric-card"><span>Active routines</span><strong>5</strong><small>In your schedule</small></div>
+                <div class="metric-card"><span>Weekly productivity</span><strong>82%</strong><small><i class="bi bi-arrow-up-right"></i> This week</small></div>
+              </div>
+              <div class="chart-panel">
+                <div class="chart-title"><div><strong>Weekly productivity</strong><small>Your activity through the week</small></div><span>This week <i class="bi bi-chevron-down"></i></span></div>
+                <div class="chart-wrap"><canvas id="weeklyChart" aria-label="Weekly productivity bar chart"></canvas></div>
+              </div>
+              <div class="habit-panel">
+                <div class="chart-title"><div><strong>Daily habits</strong><small>Keep your momentum</small></div><span>3 habits</span></div>
+                <div class="habit-row"><span class="habit-emoji">💧</span><span>Drink enough water</span><div class="habit-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i></div><b>5/7</b></div>
+                <div class="habit-row"><span class="habit-emoji">📖</span><span>Read every day</span><div class="habit-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i></div><b>4/7</b></div>
+                <div class="habit-row"><span class="habit-emoji">🏃</span><span>Move your body</span><div class="habit-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i></i></div><b>6/7</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section-pad benefits-section" id="benefits">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <span class="eyebrow">PROGRESS OVER PERFECTION</span>
+            <h2>Make space for the things <span>that matter.</span></h2>
+            <p class="section-description">A good routine is not about doing everything. It is about making time for what matters and showing up consistently.</p>
+            <div class="benefit-quote"><i class="bi bi-quote"></i><p>You don't need a perfect day. You just need a small step in the right direction.</p></div>
+          </div>
+          <div class="col-lg-7">
+            <div class="benefit-list">
+              <div class="benefit-item"><span class="benefit-icon icon-blue"><i class="bi bi-calendar2-week"></i></span><div><h3>Develop consistency</h3><p>Make useful actions part of your everyday rhythm.</p></div></div>
+              <div class="benefit-item"><span class="benefit-icon icon-purple"><i class="bi bi-clock"></i></span><div><h3>Improve time management</h3><p>Give your tasks a place in your day and stay organized.</p></div></div>
+              <div class="benefit-item"><span class="benefit-icon icon-green"><i class="bi bi-flower1"></i></span><div><h3>Build positive habits</h3><p>Focus on repeatable actions that support your goals.</p></div></div>
+              <div class="benefit-item"><span class="benefit-icon icon-orange"><i class="bi bi-graph-up"></i></span><div><h3>Understand your progress</h3><p>Use simple insights to recognize growth and stay motivated.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-decoration cta-decoration-one"></div><div class="cta-decoration cta-decoration-two"></div>
+          <div class="cta-content">
+            <span class="eyebrow light-eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+            <h2>Start building better routines today.</h2>
+            <p>Your journey towards better habits and productivity starts with one small step.</p>
+            <form action="/signup">
+              <button class="btn btn-light-custom btn-lg">Get started with Day-Check <i class="bi bi-arrow-right"></i></button>
+            </form> 
+            <!-- <a href="signup.html" class="btn btn-light-custom btn-lg">Get started with Day-Check <i class="bi bi-arrow-right"></i></a> -->
+          </div>
+          <div class="cta-art">
+            <div class="cta-orbit orbit-one"></div>
+            <div class="cta-orbit orbit-two"></div>
+            <span class="cta-check"><i class="bi bi-check2"></i></span>
+            <span class="cta-spark spark-one">✦</span>
+            <span class="cta-spark spark-two">✧</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reusable public-site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand"><a class="brand brand-footer" href="#home"><span class="brand-mark"><i class="bi bi-check2"></i></span><span class="brand-copy"><strong>Day-Check</strong><small>Make every day count</small></span></a><p>Every day, one step closer to growth and self-improvement.</p></div>
+        <div class="footer-column"><h4>Explore</h4><a href="#about">About</a><a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#benefits">Benefits</a></div>
+        <div class="footer-column"><h4>Features</h4><a href="#features">Daily tracker</a><a href="#features">Routine management</a><a href="#preview">Progress dashboard</a><a href="#preview">Reports &amp; analytics</a></div>
+        <div class="footer-column" id="footer-contact"><h4>Get in touch</h4><a href="mailto:vivekmistrivivek@gmail.com"><i class="bi bi-envelope"></i> vivekmistrivivek@gmail.com</a><span><i class="bi bi-geo-alt"></i> Contact details coming soon</span><div class="social-links"><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a><a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Day-Check. All Rights Reserved.</span><a href="#top">Back to top <i class="bi bi-arrow-up"></i></a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="static/js/script.js"></script>
+</body>
+</html>
